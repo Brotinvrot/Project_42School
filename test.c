@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 11:01:02 by drabadan          #+#    #+#             */
-/*   Updated: 2024/06/09 15:58:38 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:39:20 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ struct s_node	*create_list(int n, char **str, Our_freedom *freedom)
 	}
 	head->data = ft_atoi(str[i], freedom);
 	head->next = NULL;
+	head -> prev = NULL;
 	temp = head;
 	i = 1;
 	while (i < n)
@@ -58,8 +59,9 @@ struct s_node	*create_list(int n, char **str, Our_freedom *freedom)
 			}
 			return (NULL);
 		}
-		p->data = ft_atoi(str[i], freedom);
-		p->next = NULL;
+		p -> data = ft_atoi(str[i], freedom);
+		p -> next = NULL;
+		p -> prev = temp;
 		temp->next = p;
 		temp = p;
 		i++;

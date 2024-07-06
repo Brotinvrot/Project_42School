@@ -27,6 +27,7 @@ typedef struct s_node
 {
 	int				data;
 	struct s_node	*next;
+	struct s_node	*prev;
 }	t_stack;
 
 struct s_node	*create_list(int n, char **str, Our_freedom *freedom);
