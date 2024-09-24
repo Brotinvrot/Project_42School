@@ -6,13 +6,13 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:00:19 by drabadan          #+#    #+#             */
-/*   Updated: 2024/07/01 17:15:33 by macushka         ###   ########.fr       */
+/*   Updated: 2024/07/07 19:34:37 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "heder.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)//перенёс
 {
 	size_t	n;
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *str)
 	return (n);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)//перенёс
 {
 	size_t	i;
 
@@ -39,7 +39,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (ft_strlen(src));
 }
 
-char	*ft_strdup(const char *src)
+char	*ft_strdup(const char *src)//перенёс
 {
 	char	*point;
 	int		len_src;
@@ -56,7 +56,7 @@ char	*ft_strdup(const char *src)
 	return (point - len_src);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)//перенёс
 {
 	char	*new_str;
 	size_t	com_size;
@@ -75,7 +75,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (new_str);
 }
 
-static int	word_counter(char const *s, char c)
+static int	word_counter(char const *s, char c)//пeренес
 {
 	int	w;
 
@@ -94,7 +94,7 @@ static int	word_counter(char const *s, char c)
 	return (w);
 }
 
-void	put(char const *s, char c, char **result)
+void	put(char const *s, char c, char **result)//перенес
 {
 	int			j;
 	const char	*start;
@@ -122,7 +122,7 @@ void	put(char const *s, char c, char **result)
 	result[j] = NULL;
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)//перенес
 {
 	int		word_count;
 	char	**result;
@@ -135,7 +135,7 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-int	total_length(int argc, char **argv)
+int	total_length(int argc, char **argv)//перенёс
 {
 	int	n;
 	int	i;
@@ -144,13 +144,13 @@ int	total_length(int argc, char **argv)
 	i = 1;
 	while (i < argc) 
 	{
-		n += strlen(argv[i]);
+		n += ft_strlen(argv[i]);
 		i++;
 	}
 	return (n);
 }
 
-char	*str_creat(char *str, int argc, char **argv)
+char	*str_creat(char *str, int argc, char **argv)//перенёс
 {
 	int	i;
 
@@ -165,7 +165,7 @@ char	*str_creat(char *str, int argc, char **argv)
 	return (str);
 }
 
-int	chek_simbl(char *str)
+int	chek_simbl(char *str)//перенёс код
 {
 	while (*str)
 	{
@@ -207,7 +207,7 @@ void	error_and_exit(Our_freedom *freedom)
 	exit (printf("invalid characters\n"));
 }
 
-int	ft_atoi(const char *str, Our_freedom *freedom)
+int	ft_atoi(const char *str, Our_freedom *freedom)//перенёс
 {
 	long	n;
 	short	sim;
@@ -241,7 +241,7 @@ int	ft_atoi(const char *str, Our_freedom *freedom)
 	return (-1);
 }
 
-void	chek_doubl(char **str, Our_freedom *freedom)
+void	chek_doubl(char **str, Our_freedom *freedom)//перенёс
 {
 	int	i;
 	int	j;
@@ -273,7 +273,7 @@ int	main(int argc, char *argv[])
 	int					i;
 
 	if (argc < 2) 
-		return (1);
+		return (1);//скопировал
 	total_len = total_length(argc, argv);
 	freedom.str = (char *)malloc(total_len + argc);
 	if (freedom.str == NULL) 

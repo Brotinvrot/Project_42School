@@ -6,81 +6,81 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:10:09 by macushka          #+#    #+#             */
-/*   Updated: 2024/07/04 20:10:00 by macushka         ###   ########.fr       */
+/*   Updated: 2024/07/07 13:00:49 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header_new.h"
 
-void    rotate_A(t_Stack *stack_A)
+void	rotate_a(t_Stack *a)
 {
-    if (stack_A -> top == NULL || stack_A -> top -> next == NULL)
-        return ;
-    stack_A -> top -> prev = stack_A -> end;
-    stack_A -> end -> next = stack_A -> top;
-    stack_A -> top -> next -> prev = NULL;
-    stack_A -> top = stack_A -> top -> next;
-    stack_A -> end = stack_A -> end -> next;
-    stack_A -> end -> next = NULL;
-    write (1, "ra\n", 3);
+	if (a -> top == NULL || a -> top -> next == NULL)
+		return ;
+	a -> top -> prev = a -> end;
+	a -> end -> next = a -> top;
+	a -> top -> next -> prev = NULL;
+	a -> top = a -> top -> next;
+	a -> end = a -> end -> next;
+	a -> end -> next = NULL;
+	write (1, "ra\n", 3);
 }
 
-void    rotate_B(t_Stack *stack_B)
+void	rotate_b(t_Stack *b)
 {
-    if (stack_B -> top == NULL || stack_B -> top -> next == NULL)
-        return ;
-    stack_B -> top -> prev = stack_B -> end;
-    stack_B -> end -> next = stack_B -> top;
-    stack_B -> top -> next -> prev = NULL;
-    stack_B -> top = stack_B -> top -> next;
-    stack_B -> end = stack_B -> end -> next;
-    stack_B -> end -> next = NULL;
-    write (1, "rb\n", 3);
+	if (b -> top == NULL || b -> top -> next == NULL)
+		return ;
+	b -> top -> prev = b -> end;
+	b -> end -> next = b -> top;
+	b -> top -> next -> prev = NULL;
+	b -> top = b -> top -> next;
+	b -> end = b -> end -> next;
+	b -> end -> next = NULL;
+	write (1, "rb\n", 3);
 }
 
-void    rotate_R(t_Stack *stack_A, t_Stack *stack_B)
+void	rotate_r(t_Stack *a, t_Stack *b)
 {
-    if (stack_A -> top == NULL || stack_A -> top -> next == NULL)
-        return ;
-    if (stack_B -> top == NULL || stack_B -> top -> next == NULL)
-        return ;
-    stack_A -> top -> prev = stack_A -> end;
-    stack_A -> end -> next = stack_A -> top;
-    stack_A -> top -> next -> prev = NULL;
-    stack_A -> top = stack_A -> top -> next;
-    stack_A -> end = stack_A -> end -> next;
-    stack_A -> end -> next = NULL;
-    stack_B -> top -> prev = stack_B -> end;
-    stack_B -> end -> next = stack_B -> top;
-    stack_B -> top -> next -> prev = NULL;
-    stack_B -> top = stack_B -> top -> next;
-    stack_B -> end = stack_B -> end -> next;
-    stack_B -> end -> next = NULL;
-    write (1, "rr\n", 3);
+	if (a -> top == NULL || a -> top -> next == NULL)
+		return ;
+	if (b -> top == NULL || b -> top -> next == NULL)
+		return ;
+	a -> top -> prev = a -> end;
+	a -> end -> next = a -> top;
+	a -> top -> next -> prev = NULL;
+	a -> top = a -> top -> next;
+	a -> end = a -> end -> next;
+	a -> end -> next = NULL;
+	b -> top -> prev = b -> end;
+	b -> end -> next = b -> top;
+	b -> top -> next -> prev = NULL;
+	b -> top = b -> top -> next;
+	b -> end = b -> end -> next;
+	b -> end -> next = NULL;
+	write (1, "rr\n", 3);
 }
 
-void    rev_RA(t_Stack *stack_A)
+void	rev_ra(t_Stack *a)
 {
-    if (stack_A -> top == NULL || stack_A -> top -> next == NULL)
-        return ;
-    stack_A -> end -> next = stack_A -> top;
-    stack_A -> top -> prev = stack_A -> end;
-    stack_A -> end = stack_A -> end -> prev;
-    stack_A -> end -> next = NULL;
-    stack_A -> top = stack_A -> top -> prev;
-    stack_A -> top -> prev = NULL;
-    write (1, "rra\n", 4);
+	if (a -> top == NULL || a -> top -> next == NULL)
+		return ;
+	a -> end -> next = a -> top;
+	a -> top -> prev = a -> end;
+	a -> end = a -> end -> prev;
+	a -> end -> next = NULL;
+	a -> top = a -> top -> prev;
+	a -> top -> prev = NULL;
+	write (1, "rra\n", 4);
 }
 
-void    rev_RB(t_Stack *stack_B)
+void	rev_rb(t_Stack *b)
 {
-    if (stack_B -> top == NULL || stack_B -> top -> next == NULL)
-        return ;
-    stack_B -> end -> next = stack_B -> top;
-    stack_B -> top -> prev = stack_B -> end;
-    stack_B -> end = stack_B -> end -> prev;
-    stack_B -> end -> next = NULL;
-    stack_B -> top = stack_B -> top -> prev;
-    stack_B -> top -> prev = NULL;
-    write (1, "rrb\n", 4);
+	if (b -> top == NULL || b -> top -> next == NULL)
+		return ;
+	b -> end -> next = b -> top;
+	b -> top -> prev = b -> end;
+	b -> end = b -> end -> prev;
+	b -> end -> next = NULL;
+	b -> top = b -> top -> prev;
+	b -> top -> prev = NULL;
+	write (1, "rrb\n", 4);
 }

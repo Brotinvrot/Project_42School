@@ -6,95 +6,95 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 11:40:49 by drabadan          #+#    #+#             */
-/*   Updated: 2024/07/04 20:02:04 by macushka         ###   ########.fr       */
+/*   Updated: 2024/07/07 13:02:24 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header_new.h"
 
-void    push_B(t_Stack *stack_A, t_Stack *stack_B)
+void	push_b(t_Stack *a, t_Stack *b)
 {
-    t_node  *tmp;
+	t_node	*tmp;
 
-    if (stack_A -> top == NULL)
-        return ;
-    tmp = stack_A -> top;
-    stack_A -> top = stack_A -> top -> next;
-    if (stack_A -> top != NULL)
-        stack_A -> top -> prev = NULL;
-    else
-        stack_A -> end = NULL;
-    tmp -> next = stack_B -> top;
-    tmp -> prev = NULL;
-    if (stack_B -> top != NULL)
-        stack_B -> top -> prev = tmp;
-    else
-        stack_B -> end = tmp;
-    stack_B -> top = tmp;
-    write (1, "pb\n", 3);
+	if (a -> top == NULL)
+		return ;
+	tmp = a -> top;
+	a -> top = a -> top -> next;
+	if (a -> top != NULL)
+		a -> top -> prev = NULL;
+	else
+		a -> end = NULL;
+	tmp -> next = b -> top;
+	tmp -> prev = NULL;
+	if (b -> top != NULL)
+		b -> top -> prev = tmp;
+	else
+		b -> end = tmp;
+	b -> top = tmp;
+	write (1, "pb\n", 3);
 }
 
-void    push_A(t_Stack *stack_A, t_Stack *stack_B)
+void	push_a(t_Stack *a, t_Stack *b)
 {
-    t_node  *tmp;
+	t_node	*tmp;
 
-    if (stack_B -> top == NULL)
-        return ;
-    tmp = stack_B -> top;
-    stack_B -> top = stack_B -> top -> next;
-    if (stack_B -> top != NULL)
-        stack_B -> top -> prev = NULL;
-    else
-        stack_B -> end = NULL;
-    tmp -> next = stack_A -> top;
-    tmp -> prev = NULL;
-    if (stack_A -> top != NULL)
-        stack_A -> top -> prev = tmp;
-    else
-        stack_A -> end = tmp;
-    stack_A -> top = tmp;
-    write (1, "pa\n", 3);
+	if (b -> top == NULL)
+		return ;
+	tmp = b -> top;
+	b -> top = b -> top -> next;
+	if (b -> top != NULL)
+		b -> top -> prev = NULL;
+	else
+		b -> end = NULL;
+	tmp -> next = a -> top;
+	tmp -> prev = NULL;
+	if (a -> top != NULL)
+		a -> top -> prev = tmp;
+	else
+		a -> end = tmp;
+	a -> top = tmp;
+	write (1, "pa\n", 3);
 }
 
-void    swap_A(t_Stack *stack_A)
+void	swap_a(t_Stack *a)
 {
-    if (stack_A -> top == NULL || stack_A -> top -> next == NULL)
-        return ;
-    stack_A -> top -> prev = stack_A -> top -> next;
-    stack_A -> top -> next = stack_A -> top -> next -> next;
-    stack_A -> top -> prev -> next = stack_A -> top;
-    stack_A -> top = stack_A -> top -> prev;
-    stack_A -> top ->prev = NULL;
-    write (1, "sa\n", 3);
+	if (a -> top == NULL || a -> top -> next == NULL)
+		return ;
+	a -> top -> prev = a -> top -> next;
+	a -> top -> next = a -> top -> next -> next;
+	a -> top -> prev -> next = a -> top;
+	a -> top = a -> top -> prev;
+	a -> top ->prev = NULL;
+	write (1, "sa\n", 3);
 }
 
-void    swap_B(t_Stack *stack_B)
+void	swap_b(t_Stack *b)
 {
-    if (stack_B -> top == NULL || stack_B -> top -> next == NULL)
-        return ;
-    stack_B -> top -> prev = stack_B -> top -> next;
-    stack_B -> top -> next = stack_B -> top -> next -> next;
-    stack_B -> top -> prev -> next = stack_B -> top;
-    stack_B -> top = stack_B -> top -> prev;
-    stack_B -> top ->prev = NULL;
-    write (1, "sb\n", 3);
+	if (b -> top == NULL || b -> top -> next == NULL)
+		return ;
+	b -> top -> prev = b -> top -> next;
+	b -> top -> next = b -> top -> next -> next;
+	b -> top -> prev -> next = b -> top;
+	b -> top = b -> top -> prev;
+	b -> top ->prev = NULL;
+	write (1, "sb\n", 3);
 }
 
-void    swap_SS(t_Stack *stack_A, t_Stack *stack_B)
+void	swap_ss(t_Stack *a, t_Stack *b)
 {
-    if (stack_A -> top == NULL || stack_A -> top -> next == NULL)
-        return ;
-    if (stack_B -> top == NULL || stack_B -> top -> next == NULL)
-        return ;
-    stack_A -> top -> prev = stack_A -> top -> next;
-    stack_A -> top -> next = stack_A -> top -> next -> next;
-    stack_A -> top -> prev -> next = stack_A -> top;
-    stack_A -> top = stack_A -> top -> prev;
-    stack_A -> top ->prev = NULL;
-    stack_B -> top -> prev = stack_B -> top -> next;
-    stack_B -> top -> next = stack_B -> top -> next -> next;
-    stack_B -> top -> prev -> next = stack_B -> top;
-    stack_B -> top = stack_B -> top -> prev;
-    stack_B -> top ->prev = NULL;
-    write (1, "ss\n", 3);
+	if (a -> top == NULL || a -> top -> next == NULL)
+		return ;
+	if (b -> top == NULL || b -> top -> next == NULL)
+		return ;
+	a -> top -> prev = a -> top -> next;
+	a -> top -> next = a -> top -> next -> next;
+	a -> top -> prev -> next = a -> top;
+	a -> top = a -> top -> prev;
+	a -> top ->prev = NULL;
+	b -> top -> prev = b -> top -> next;
+	b -> top -> next = b -> top -> next -> next;
+	b -> top -> prev -> next = b -> top;
+	b -> top = b -> top -> prev;
+	b -> top ->prev = NULL;
+	write (1, "ss\n", 3);
 }
