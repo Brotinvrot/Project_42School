@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 10:35:38 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/24 16:00:06 by macushka         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:54:38 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	push_a(t_Stack *a, t_Stack *b);
 void	swap_ss(t_Stack *a, t_Stack *b);
 void	first_step(int argc, char **argv);
 void	print_stack(t_Stack *stack, char str);
-void	goto_free(char **str);// опять удалил char *s да и хуй с ним
+void	goto_free(char **str);
 void	push_min_to_b(t_Stack *a, t_Stack *b);
 void	sort_stack(t_Stack *a, t_Stack *b);
 void	init_stack(t_Stack *stack);

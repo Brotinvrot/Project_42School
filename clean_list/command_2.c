@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:03:08 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/24 10:45:05 by macushka         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:21:11 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ t_node	*create_node(int value)
 	new_node = malloc(sizeof(t_node));
 	if (new_node == NULL)
 	{
-		printf ("Memory allocation failed\n");
-		exit (1);
+		write (2,"Error\n", 1);
+		return (new_node);
 	}
 	new_node -> number = value;
 	new_node -> next = NULL;

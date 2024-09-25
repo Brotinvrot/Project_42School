@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:17:42 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/24 16:00:55 by macushka         ###   ########.fr       */
+/*   Updated: 2024/09/25 22:47:04 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ void	second_step(char **str)
 	init_stack(&a);
 	init_stack(&b);
 	fill_stack(&a, str);
-	print_stack(&a, 'a');
 	sort_stack(&a, &b);
-	print_stack(&a, 'a');
 	free_stack(&a);
 	free_stack(&b);
 }
@@ -71,6 +69,8 @@ void	first_step(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
+	if (argc == 2)
+		return (0);
 	first_step(argc, argv);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 11:05:35 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/22 13:54:07 by macushka         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:54:14 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	check_simbl(char *str)
 		{
 			if ((*str >= 48 && *str <= 57) && *(str + 1) == 45)
 			{
-				write (1, "Error invalid character\n", 24);
+				write (2, "Error\n", 6);
 				exit (1);
 			}
 			else
@@ -32,7 +32,7 @@ void	check_simbl(char *str)
 				str ++;
 			else
 			{
-				write (1, "Error invalid character\n", 24);
+				write (2, "Error\n", 6);
 				exit (1);
 			}
 		}
@@ -53,7 +53,7 @@ int	chek_doubl(char **str)
 		{
 			if ((strcmp (str[i], str[j]) == 0))
 			{
-				write(1, "Error: duplicate found\n", 23);
+				write(2, "Error\n", 6);
 				return (1);
 			}
 			j++;
@@ -74,7 +74,7 @@ int	check_int(char **str)
 		num = ft_atoi(str[i]);
 		if (num < -2147483648 || num > 2147483647)
 		{
-			write(1, "Error this is not int\n", 22);
+			write(2, "Error\n", 6);
 			return (1);
 		}
 		i++;
