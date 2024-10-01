@@ -1,11 +1,12 @@
-NAME = Push_Swap
-CC = cc
+NAME = push_swap
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-PREF_SRC = ./src/
-PREF_OBJ = ./obj/
+PREF_SRC = src/
+PREF_OBJ = obj/
 
-SRC = $(wildcard $(PREF_SRC)*.c)
+SRC = $(addprefix $(PREF_SRC), all_check.c command_1.c command_2.c support_code2.c command.c re_test.c \
+								support_code.c support_code1.c func_lib.c)
 OBJ = $(patsubst $(PREF_SRC)%.c, $(PREF_OBJ)%.o, $(SRC))
 
 all : $(NAME)
@@ -18,10 +19,10 @@ $(PREF_OBJ)%.o : $(PREF_SRC)%.c
 	$(CC) -c $< -o $@
 
 clean :
-	rm -f $(PREF_OBJ)*.o
+	rm -rf $(PREF_OBJ)
 
-fclean :
-	rm -f $(NAME) $(PREF_OBJ)*.o
+fclean : clean
+	rm -f $(NAME)
 
 re : fclean all
 	

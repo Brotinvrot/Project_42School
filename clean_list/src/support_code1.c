@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:52:02 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/24 19:17:44 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/01 11:16:45 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	fill_stack(t_Stack *a, char **str)
 	goto_free(str);
 }
 
-void	push_min_to_b(t_Stack *a, t_Stack *b)
+void	push_min_to_b(t_Stack *a, t_Stack *b)// more likelly will have to be removed
 {
 	t_node	*min;
 	t_node	*current;
@@ -74,10 +74,30 @@ void	push_min_to_b(t_Stack *a, t_Stack *b)
 	push_b (a, b);
 }
 
+short	if_it_sort(t_Stack *a)
+{
+	t_node	*current;
+
+	current = a -> top;
+	while (current != NULL)
+	{
+		if (current -> number > current -> next -> number)
+			return (1);
+		current = current -> next;
+	}
+	return (0);
+}
+
 void	sort_stack(t_Stack *a, t_Stack *b)
 {
-	while (a->top != NULL)
-		push_min_to_b(a, b);
-	while (b->top != NULL)
-		push_a(a, b);
+	if (if_it_sort(a) == 0)
+	{
+		free_stack(a);
+		exit (0);
+	}
+	speedrun(a, b);
+	// while (a->top != NULL)
+	// 	push_min_to_b(a, b);
+	// while (b->top != NULL)
+	// 	push_a(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:03:08 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/25 18:21:11 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/01 11:14:35 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init_stack(t_Stack *stack)
 {
 	stack -> top = NULL;
 	stack -> end = NULL;
+	// stack = malloc(sizeof(t_Stack));
 }
 
 t_node	*create_node(int value)

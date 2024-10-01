@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 10:35:38 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/25 16:54:38 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/01 09:44:21 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,16 @@ void	fill_stack(t_Stack *a, char **str);
 void	rotate_a(t_Stack *a);
 void	rotate_b(t_Stack *b);
 void	free_stack(t_Stack *stack);
+void	speedrun(t_Stack *a, t_Stack *b);
+void	sort_two(t_Stack *a);
+void	sort_three(t_Stack *a);
+void	sort_four(t_Stack *a, t_Stack *b);
+void	sort_few();
 void	rev_ra(t_Stack *a);
 void	rev_rb(t_Stack *b);
 void	swap_a(t_Stack *a);
 void	swap_b(t_Stack *b);
+short	if_it_sort(t_Stack *a);
 int		check_int(char **str);
 int		chek_doubl(char **str);
 long	ft_atoi(const char *str);
