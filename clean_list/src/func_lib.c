@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   func_lib.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 11:22:55 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/24 15:35:45 by macushka         ###   ########.fr       */
+/*   Created: 2024/10/01 13:38:12 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/01 13:38:15 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header_new.h"
+#include "header.h"
 
 size_t	ft_strlen(const char *str)
 {

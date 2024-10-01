@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header_new.h                                       :+:      :+:    :+:   */
+/*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 10:35:38 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/25 16:54:38 by macushka         ###   ########.fr       */
+/*   Created: 2024/10/01 13:35:38 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/01 13:35:40 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_NEW_H
-# define HEADER_NEW_H
+#ifndef HEADER_H
+# define HEADER_H
 
 # include <stdio.h>
 # include <stdlib.h>

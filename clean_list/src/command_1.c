@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   command_1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 18:10:09 by macushka          #+#    #+#             */
-/*   Updated: 2024/07/07 13:00:49 by macushka         ###   ########.fr       */
+/*   Created: 2024/10/01 13:37:43 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/01 13:37:44 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header_new.h"
+
+#include "header.h"
 
 void	rotate_a(t_Stack *a)
 {

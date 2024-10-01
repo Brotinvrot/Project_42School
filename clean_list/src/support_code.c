@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   support_code.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 11:36:13 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/24 10:18:25 by macushka         ###   ########.fr       */
+/*   Created: 2024/10/01 13:38:30 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/01 13:38:32 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header_new.h"
+#include "header.h"
 
 int	word_counter(char const *s, char c)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 11:40:49 by drabadan          #+#    #+#             */
-/*   Updated: 2024/07/07 13:02:24 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:37:53 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header_new.h"
+#include "header.h"
 
 void	push_b(t_Stack *a, t_Stack *b)
 {

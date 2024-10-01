@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   support_code1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 12:52:02 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/24 19:17:44 by macushka         ###   ########.fr       */
+/*   Created: 2024/10/01 13:39:11 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/01 13:39:13 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header_new.h"
+#include "header.h"
 
 void	free_stack(t_Stack *stack)
 {

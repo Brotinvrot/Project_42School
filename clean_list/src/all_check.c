@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   all_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 11:05:35 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/25 16:54:14 by macushka         ###   ########.fr       */
+/*   Created: 2024/10/01 13:34:37 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/01 13:34:52 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header_new.h"
+#include "header.h"
 
 void	check_simbl(char *str)
 {

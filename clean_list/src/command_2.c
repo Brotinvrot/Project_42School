@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   command_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 19:03:08 by macushka          #+#    #+#             */
-/*   Updated: 2024/09/25 18:21:11 by macushka         ###   ########.fr       */
+/*   Created: 2024/10/01 13:37:34 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/01 13:37:35 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header_new.h"
+
+#include "header.h"
 
 void	rev_rr(t_Stack *a, t_Stack *b)
 {
