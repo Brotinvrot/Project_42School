@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:39:11 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/01 13:39:13 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/05 19:12:16 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	fill_stack(t_Stack *a, char **str)
 			exit (1);
 		}
 		tmp -> number = atoi(str[i]);
-		tmp -> next = a -> top;
-		tmp -> prev = NULL;
-		if (a -> top)
-			a -> top -> prev = tmp;
-		else
-			a -> end = tmp;
-		a -> top = tmp;
+		tmp -> next = NULL;
+		tmp -> prev = a -> end;
+		if (a -> end)
+			a -> end -> next = tmp;
+		a -> end = tmp;
+		if (a -> top == NULL)
+			a -> top = tmp;
 		i++;
 	}
 	goto_free(str);
@@ -74,8 +74,32 @@ void	push_min_to_b(t_Stack *a, t_Stack *b)
 	push_b (a, b);
 }
 
+short	if_it_sort(t_Stack *stack)
+{
+	t_node	*current;
+	t_node		*top;
+
+	if (!stack || !stack -> top)
+		return (0);
+    top = stack -> top;
+    current = stack -> top -> next;
+	while (current != NULL)
+	{
+		if (top->number < current->number)
+		{
+			top = current;
+			current = top->next;
+		}
+		else
+			return (1);
+	}
+	return (0);
+}
+
 void	sort_stack(t_Stack *a, t_Stack *b)
 {
+	if (if_it_sort (a) == 0)
+		return ;
 	while (a->top != NULL)
 		push_min_to_b(a, b);
 	while (b->top != NULL)
