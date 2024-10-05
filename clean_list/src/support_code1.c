@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:52:02 by macushka          #+#    #+#             */
-/*   Updated: 2024/10/01 11:16:45 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:38:27 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,34 +56,24 @@ void	fill_stack(t_Stack *a, char **str)
 	goto_free(str);
 }
 
-void	push_min_to_b(t_Stack *a, t_Stack *b)// more likelly will have to be removed
-{
-	t_node	*min;
-	t_node	*current;
-
-	min = a -> top;
-	current = a -> top;
-	while (current != NULL)
-	{
-		if (current -> number < min -> number)
-			min = current;
-		current = current -> next;
-	}
-	while (a -> top != min)
-		rotate_a(a);
-	push_b (a, b);
-}
-
 short	if_it_sort(t_Stack *a)
 {
 	t_node	*current;
+	t_node		*top;
 
-	current = a -> top;
+	if (!a || !a -> top)
+		return (0);
+    top = a -> top;
+    current = a -> top -> next;
 	while (current != NULL)
 	{
-		if (current -> number > current -> next -> number)
+		if (top->number < current->number)
+		{
+			top = current;
+			current = top->next;
+		}
+		else
 			return (1);
-		current = current -> next;
 	}
 	return (0);
 }
@@ -96,8 +86,5 @@ void	sort_stack(t_Stack *a, t_Stack *b)
 		exit (0);
 	}
 	speedrun(a, b);
-	// while (a->top != NULL)
-	// 	push_min_to_b(a, b);
-	// while (b->top != NULL)
-	// 	push_a(a, b);
+	general_sort (a, b);
 }

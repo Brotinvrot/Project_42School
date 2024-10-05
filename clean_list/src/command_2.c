@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:03:08 by macushka          #+#    #+#             */
-/*   Updated: 2024/10/01 11:14:35 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/04 09:16:45 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	init_stack(t_Stack *stack)
 {
 	stack -> top = NULL;
 	stack -> end = NULL;
-	// stack = malloc(sizeof(t_Stack));
 }
 
 t_node	*create_node(int value)
@@ -56,15 +55,28 @@ t_node	*create_node(int value)
 	return (new_node);
 }
 
-void	print_stack(t_Stack *stack, char str)
+void	print_stack(t_Stack *stack, char c)
 {
 	t_node	*tmp;
 
 	tmp = stack -> top;
-	printf ("%c\n", str);
+	printf ("%c\n", c);
 	while (tmp != NULL)
 	{
 		printf ("%d ", tmp -> number);
+		tmp = tmp -> next;
+	}
+	printf ("\n");
+}
+
+void	print_stack_index(t_Stack *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack -> top;
+	while (tmp != NULL)
+	{
+		printf ("%d ", tmp -> index);
 		tmp = tmp -> next;
 	}
 	printf ("\n");

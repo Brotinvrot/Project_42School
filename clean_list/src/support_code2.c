@@ -6,57 +6,25 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 12:52:27 by macushka          #+#    #+#             */
-/*   Updated: 2024/10/01 12:29:37 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:34:01 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header_new.h"
 
-int	count_nods(t_Stack *a)
+int	count_nods(t_Stack *stack)
 {
 	t_node	*tmp;
 	int		i;
 
 	i = 0;
-	tmp = a -> top;
+	tmp = stack -> top;
 	while (tmp != NULL)
 	{
 		tmp = tmp -> next;
 		i++;
 	}
 	return (i);
-}
-
-void	sort_two(t_Stack *a)
-{
-	if (a -> top -> number > a -> end -> number)
-		swap_a(a);
-}
-
-void	sort_three(t_Stack *a)
-{
-	if (a -> top -> number > a -> end -> number)
-	{
-		if (a -> end -> number > a -> top -> next -> number)
-			rotate_a(a);
-		else
-		{
-			rotate_a(a);
-			swap_a(a);
-		}
-	}
-	else if (a -> top -> number < a -> end -> number)
-	{
-		if (a -> top -> number > a -> top -> next -> number)
-			swap_a(a);
-		else
-		{
-			swap_a(a);
-			rotate_a(a);
-		}
-	}
-	else
-		rev_ra(a);
 }
 
 void	rotate_to_min(t_Stack *a, int min, int index_min, int max_index)
@@ -103,8 +71,41 @@ void	find_min_pb(t_Stack *a, t_Stack *b)
 		max_index++;
 	}
 	rotate_to_min (a, min, index_min, max_index);
-	if (if_it_sort(a) == 1)
-		push_b(a, b);
+	push_b (a, b);
+}
+
+void	sort_two(t_Stack *a)
+{
+	if (a -> top -> number > a -> end -> number)
+		swap_a(a);
+}
+
+void	sort_three(t_Stack *a)
+{
+	int	top;
+	int	midl;
+	int	end;
+
+	top = a -> top -> number;
+	midl = a -> top -> next -> number;
+	end = a -> end -> number;
+
+	if (top > midl && midl > end)//C B A
+	{
+		swap_a (a);
+		rev_ra (a);
+	}
+	else if (top > end && end > midl)// C A B
+		rotate_a (a);
+	else if (midl < top && top < end)// B A C
+		swap_a (a);
+	else if (midl > top && top > end)// B C A
+		rev_ra (a);
+	else if (top < end && end < midl)// A C B
+	{
+		swap_a (a);
+		rotate_a (a);
+	}
 }
 
 void	sort_four(t_Stack *a, t_Stack *b)
@@ -116,9 +117,17 @@ void	sort_four(t_Stack *a, t_Stack *b)
 	push_a(a, b);
 }
 
-void	sort_few()
+void	sort_few(t_Stack *a, t_Stack *b)
 {
-	write(1, "Im in funktion few\n", 19);
+	find_min_pb(a, b);
+	if (if_it_sort(a) == 0 && b -> top == NULL)
+		return ;
+	find_min_pb(a, b);
+	if (if_it_sort(a) == 0 && b -> top == NULL)
+		return ;
+	sort_three(a);
+	push_a(a, b);
+	push_a(a, b);
 }
 
 void	speedrun(t_Stack *a, t_Stack *b)
@@ -130,21 +139,22 @@ void	speedrun(t_Stack *a, t_Stack *b)
 		return ;
 	if (nods == 2)
 		sort_two(a);
-	if (nods == 3)
-	{
+	else if (nods == 3)
 		sort_three(a);
-	}
-	if (nods == 4)
+	else if (nods == 4)
 		sort_four(a, b);
-	if (nods == 5)
-		sort_few();
-	print_stack(a, "a");
-	//if_it_sort(a);
-	// {
-	// 	free_stack(a);
-	// 	write (1, "Oshibka BLIAT\n", 14);
-	// 	exit (1);
-	// }
+	else if (nods == 5)
+		sort_few(a, b);
+	print_stack (a, 'a');
+	if (if_it_sort(a) == 0)
+	{
+		write (1, "Sort\n", 5);
+		free_stack(a);
+		free_stack(b);
+		exit (0);
+	}
+	else
+		write (1, "Ne sort\n", 8);
 }
 /* в общем идея сортировки такая закинул перых два элемента в стек б потом
  отсортировал их в порядке убывания больший элемент в начало меньший в конец и так по одному закидываешь и

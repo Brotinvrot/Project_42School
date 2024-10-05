@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:10:09 by macushka          #+#    #+#             */
-/*   Updated: 2024/07/07 13:00:49 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/05 11:04:13 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	rotate_b(t_Stack *b)
 		return ;
 	b -> top -> prev = b -> end;
 	b -> end -> next = b -> top;
-	b -> top -> next -> prev = NULL;
 	b -> top = b -> top -> next;
+	b -> top -> prev = NULL;
 	b -> end = b -> end -> next;
 	b -> end -> next = NULL;
 	write (1, "rb\n", 3);
