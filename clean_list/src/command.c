@@ -6,7 +6,7 @@
 /*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 11:40:49 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/01 12:49:30 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/05 21:29:17 by macushka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ void	swap_a(t_Stack *a)
 	a -> top -> next = a -> top -> next -> next;
 	a -> top -> prev -> next = a -> top;
 	a -> top = a -> top -> prev;
+	a -> top -> next = a -> top -> prev;
 	a -> top ->prev = NULL;
+	if (a -> top -> next -> next != NULL)
+		a -> top -> next -> next -> prev = a -> top -> next;
 	write (1, "sa\n", 3);
 }
 
@@ -76,7 +79,10 @@ void	swap_b(t_Stack *b)
 	b -> top -> next = b -> top -> next -> next;
 	b -> top -> prev -> next = b -> top;
 	b -> top = b -> top -> prev;
+	b -> top = b -> top -> prev;
 	b -> top ->prev = NULL;
+	if (b -> top -> next -> next != NULL)
+		b -> top -> next -> next -> prev = b -> top -> next;
 	write (1, "sb\n", 3);
 }
 
