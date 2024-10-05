@@ -12,11 +12,11 @@ OBJ = $(patsubst $(PREF_SRC)%.c, $(PREF_OBJ)%.o, $(SRC))
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) -g $(CFLAGS) $(OBJ) -o $(NAME)
 
 $(PREF_OBJ)%.o : $(PREF_SRC)%.c
 	@mkdir -pv $(PREF_OBJ)
-	$(CC) -c $< -o $@
+	$(CC) -g -c $< -o $@
 
 clean :
 	rm -rf $(PREF_OBJ)

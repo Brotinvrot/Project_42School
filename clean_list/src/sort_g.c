@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_g.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:38:57 by macushka          #+#    #+#             */
-/*   Updated: 2024/10/05 11:06:36 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/05 16:31:40 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,85 @@ void	push_to_b (t_Stack *a, t_Stack *b)
     // }
 }
 
+void	assert_stack(t_Stack *stack)
+{
+	t_node	*top = stack->top;
+	t_node	*end = stack->end;
+	int		stack_size = 0;
+	
+	while (top)
+	{
+		stack_size++;
+		top = top->next;
+	}
+	top = stack->top;
+	
+	int *arr1 = malloc(stack_size * sizeof(int));
+	int *arr2 = malloc(stack_size * sizeof(int));
+	int	len1 = 0;
+	int	len2 = 0;
+	for (int i = 0; i < stack_size; i++)
+	{
+		if (top)
+		{
+			len1++;
+			arr1[i] = top->number;
+			top = top->next;
+		}
+		if (end)
+		{
+			len2++;
+			arr2[stack_size - i - 1] = end->number;
+			end = end->prev;
+		}
+	}
+	if (len1 != len2)
+	{
+		printf("Error: stack size is different from the beginning and end\n%i != %i\n", len1, len2);
+		top = stack->top;
+		printf("stack from the beginning:\n");
+		while (top)
+		{
+			printf("%i ", top->number);
+			top = top->next;
+		}
+		end = stack->end;
+		printf("stack from the beginning:\n");
+		while (end)
+		{
+			printf("%i ", end->number);
+			end = end->prev;
+		}
+		exit(0);
+	}
+	for (int i = 0; i < stack_size; i++)
+	{
+		if (arr1[i] != arr2[i])
+		{
+			printf("Error: stack is wrong\n");
+			exit(0);
+		}
+	}
+}
+
 void	general_sort (t_Stack *a, t_Stack *b)
 {
 	while (a -> top != NULL)
+	{
 		push_to_b (a, b);
+		print_stack(a, 'a');
+		print_stack(b, 'b');
+		// assert_stack(a);
+		assert_stack(b);
+	}
+		
 	while (b -> top != NULL)
+	{
 		push_a(a, b);
+		print_stack(a, 'a');
+		print_stack(b, 'b');
+		// assert_stack(a);
+		assert_stack(b);
+	}
+		
 }
