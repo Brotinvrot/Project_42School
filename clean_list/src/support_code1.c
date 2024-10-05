@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:39:11 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/05 19:12:16 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/05 20:31:19 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ short	if_it_sort(t_Stack *stack)
 
 void	sort_stack(t_Stack *a, t_Stack *b)
 {
+	swap_a (a);
 	if (if_it_sort (a) == 0)
 		return ;
 	while (a->top != NULL)
