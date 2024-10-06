@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 11:40:49 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/05 21:29:17 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/05 22:22:09 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,24 @@ void	swap_a(t_Stack *a)
 
 void	swap_b(t_Stack *b)
 {
-	if (b -> top == NULL || b -> top -> next == NULL)
-		return ;
-	b -> top -> prev = b -> top -> next;
-	b -> top -> next = b -> top -> next -> next;
-	b -> top -> prev -> next = b -> top;
-	b -> top = b -> top -> prev;
-	b -> top = b -> top -> prev;
-	b -> top ->prev = NULL;
-	if (b -> top -> next -> next != NULL)
-		b -> top -> next -> next -> prev = b -> top -> next;
-	write (1, "sb\n", 3);
+    if (b->top == NULL || b->top->next == NULL)
+        return;
+
+    // Обновляем указатели
+    b->top->prev = b->top->next;
+    b->top->next = b->top->next->next;
+
+    // Проверяем, существует ли второй элемент
+    if (b->top->next != NULL && b->top->next->next != NULL)
+        b->top->next->next->prev = b->top->next;
+
+    b->top->prev->next = b->top;
+    b->top = b->top->prev;
+    b->top->prev = NULL;
+
+    write(1, "sb\n", 3);
 }
+
 
 void	swap_ss(t_Stack *a, t_Stack *b)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header_new.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macushka <macushka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 10:35:38 by macushka          #+#    #+#             */
-/*   Updated: 2024/10/04 22:26:09 by macushka         ###   ########.fr       */
+/*   Updated: 2024/10/05 21:51:03 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void	check_simbl(char *str);
 t_node	*create_node(int value);
 size_t	ft_strlen(const char *str);
 void	print_stack_index(t_Stack *stack);
+void	assert_stack(t_Stack *stack);
 
 #endif

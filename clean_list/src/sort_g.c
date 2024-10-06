@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:38:57 by macushka          #+#    #+#             */
-/*   Updated: 2024/10/05 16:31:40 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/05 21:52:17 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,11 @@ void	push_to_b (t_Stack *a, t_Stack *b)
 			min_ind = index_a;
 			max_ind = tmp -> index;
 			push_b (a, b);
+			printf("before swap\n");
+			assert_stack(b);
 			swap_b (b);
+			printf("after swap\n");
+			assert_stack(b);
 		}
 	else if (index_a > max_ind || index_a < min_ind)
 	{
@@ -134,58 +138,84 @@ void	assert_stack(t_Stack *stack)
 {
 	t_node	*top = stack->top;
 	t_node	*end = stack->end;
-	int		stack_size = 0;
+	int		stack_size1 = 0;
+	int		stack_size2 = 0;
 	
 	while (top)
 	{
-		stack_size++;
+		stack_size1++;
 		top = top->next;
 	}
+	while (end)
+	{
+		stack_size2++;
+		end = end->prev;
+	}
+	if (stack_size1 != stack_size2)
+	{
+		printf("Error: stack size is different from the beginning and end\n%i != %i\n", stack_size1, stack_size2);
+		top = stack->top;
+		printf("stack from the beginning:");
+		while (top)
+		{
+			printf(" %i", top->number);
+			top = top->next;
+		}
+		printf("\n");
+		end = stack->end;
+		printf("stack from the end:");
+		while (end)
+		{
+			printf(" %i", end->number);
+			end = end->prev;
+		}
+		printf("\n");
+		exit(0);
+	}
 	top = stack->top;
-	
-	int *arr1 = malloc(stack_size * sizeof(int));
-	int *arr2 = malloc(stack_size * sizeof(int));
+	end = stack->end;
+
+	int *arr1 = malloc(stack_size1 * sizeof(int));
+	int *arr2 = malloc(stack_size2 * sizeof(int));
 	int	len1 = 0;
 	int	len2 = 0;
-	for (int i = 0; i < stack_size; i++)
+	for (int i = 0; i < stack_size1; i++)
 	{
 		if (top)
 		{
 			len1++;
 			arr1[i] = top->number;
+			// printf("From the beginning:\nelem = %i\nindex = %i\n", arr1[i]);
 			top = top->next;
 		}
 		if (end)
 		{
 			len2++;
-			arr2[stack_size - i - 1] = end->number;
+			arr2[stack_size2 - i - 1] = end->number;
 			end = end->prev;
 		}
 	}
-	if (len1 != len2)
-	{
-		printf("Error: stack size is different from the beginning and end\n%i != %i\n", len1, len2);
-		top = stack->top;
-		printf("stack from the beginning:\n");
-		while (top)
-		{
-			printf("%i ", top->number);
-			top = top->next;
-		}
-		end = stack->end;
-		printf("stack from the beginning:\n");
-		while (end)
-		{
-			printf("%i ", end->number);
-			end = end->prev;
-		}
-		exit(0);
-	}
-	for (int i = 0; i < stack_size; i++)
+	for (int i = 0; i < stack_size1; i++)
 	{
 		if (arr1[i] != arr2[i])
 		{
-			printf("Error: stack is wrong\n");
+			printf("Error: stack is wrong\nlen1 = %i, len2 = %i\n", len1, len2);
+			top = stack->top;
+			printf("stack from the beginning:\n");
+			while (top)
+			{
+				printf("%i ", top->number);
+				top = top->next;
+			}
+			printf("\n");
+			end = stack->end;
+			printf("stack from the end:\n");
+			while (end)
+			{
+				printf("%i ", end->number);
+				end = end->prev;
+			}
+			printf("\n");
 			exit(0);
 		}
 	}
@@ -199,7 +229,7 @@ void	general_sort (t_Stack *a, t_Stack *b)
 		print_stack(a, 'a');
 		print_stack(b, 'b');
 		// assert_stack(a);
-		assert_stack(b);
+		// assert_stack(b);
 	}
 		
 	while (b -> top != NULL)
@@ -208,7 +238,7 @@ void	general_sort (t_Stack *a, t_Stack *b)
 		print_stack(a, 'a');
 		print_stack(b, 'b');
 		// assert_stack(a);
-		assert_stack(b);
+		// assert_stack(b);
 	}
 		
 }
