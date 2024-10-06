@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:35:38 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/06 12:41:43 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/06 20:49:31 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	rev_ra(t_Stack *a);
 void	rev_rb(t_Stack *b);
 void	swap_a(t_Stack *a);
 void	swap_b(t_Stack *b);
+void	swap(t_Stack *stack);
 int		check_int(char **str);
 int		chek_doubl(char **str);
 long	ft_atoi(const char *str);
@@ -65,5 +66,5 @@ void	check_simbl(char *str);
 void	test_command(t_Stack *a, t_Stack *b);
 t_node	*create_node(int value);
 size_t	ft_strlen(const char *str);
-
+void	assert_stack(t_Stack *stack);
 #endif

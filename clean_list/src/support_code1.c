@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:39:11 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/05 20:31:19 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/06 20:57:26 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ short	if_it_sort(t_Stack *stack)
 	return (0);
 }
 
-void	sort_stack(t_Stack *a, t_Stack *b)
+void	sort_stack (t_Stack *a, t_Stack *b)
 {
-	swap_a (a);
 	if (if_it_sort (a) == 0)
 		return ;
+	
 	while (a->top != NULL)
 		push_min_to_b(a, b);
 	while (b->top != NULL)

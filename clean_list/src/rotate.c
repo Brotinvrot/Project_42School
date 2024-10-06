@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_1.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 13:37:43 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/06 18:17:19 by drabadan         ###   ########.fr       */
+/*   Created: 2024/10/06 20:47:34 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/06 20:47:37 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "header.h"
 
@@ -46,7 +45,7 @@ void	rotate_b(t_Stack *b)
 		b -> top -> next -> prev = NULL;
 		b -> top = b -> top -> next;
 		b -> end = b -> end -> next;
-		b -> end -> next = NULL;	
+		b -> end -> next = NULL;
 	}
 	write (1, "rb\n", 3);
 }
