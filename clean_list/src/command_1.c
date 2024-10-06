@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:37:43 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/01 13:37:44 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/06 18:17:19 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,24 @@ void	rotate_b(t_Stack *b)
 {
 	if (b -> top == NULL || b -> top -> next == NULL)
 		return ;
-	b -> top -> prev = b -> end;
-	b -> end -> next = b -> top;
-	b -> top -> next -> prev = NULL;
-	b -> top = b -> top -> next;
-	b -> end = b -> end -> next;
-	b -> end -> next = NULL;
+	if (b -> top -> next == b -> end)
+	{
+		b -> top = b -> end;
+		b -> end = b -> top -> prev;
+		b -> top -> next = b -> end;
+		b -> end -> prev = b -> top;
+		b -> top -> prev = NULL;
+		b -> end -> next = NULL;
+	}
+	else
+	{
+		b -> top -> prev = b -> end;
+		b -> end -> next = b -> top;
+		b -> top -> next -> prev = NULL;
+		b -> top = b -> top -> next;
+		b -> end = b -> end -> next;
+		b -> end -> next = NULL;	
+	}
 	write (1, "rb\n", 3);
 }
 
