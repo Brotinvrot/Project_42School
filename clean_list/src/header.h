@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:35:38 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/06 20:49:31 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/09 12:02:17 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_node
 {
 	int				number;
+	int				index;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -63,8 +64,24 @@ int		check_int(char **str);
 int		chek_doubl(char **str);
 long	ft_atoi(const char *str);
 void	check_simbl(char *str);
+short	if_it_sort(t_Stack *stack);
 void	test_command(t_Stack *a, t_Stack *b);
 t_node	*create_node(int value);
 size_t	ft_strlen(const char *str);
+int		count_nods(t_Stack *stack);
+void	speedrun(t_Stack *a, t_Stack *b);
+void	find_min_pb(t_Stack *a, t_Stack *b);
+void	rotate_to_min(t_Stack *a, int min, int index_min, int max_index);
+void	indexing(t_Stack *stack);
+void	fill_ind(t_Stack *stack);
+void	print_index(t_Stack *stack);
 void	assert_stack(t_Stack *stack);
+void	sort_stack_1(t_Stack *a, t_Stack *b);
+void	move_min_to_top(t_Stack *stack);
+void	rotate_to_max(t_Stack *stack, int max, int index_max, int max_index);
+void	move_to_b (t_Stack *a, t_Stack *b);
+//void	rotate_b_to_insert(t_Stack *b, int number);
+void	sort_two(t_Stack *a);
+void	sort_three(t_Stack *a);
+void	pre_sort(t_Stack *a, t_Stack *b);
 #endif

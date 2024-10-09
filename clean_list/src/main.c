@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:29:55 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/06 20:54:01 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/07 16:07:04 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	second_step(char **str)
 	init_stack(&a);
 	init_stack(&b);
 	fill_stack(&a, str);
+	indexing(&a);
 	//test_command(&a, &b);
 	sort_stack(&a, &b);
 	free_stack(&a);

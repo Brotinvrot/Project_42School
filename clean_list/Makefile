@@ -6,7 +6,7 @@ PREF_SRC = src/
 PREF_OBJ = obj/
 
 SRC = $(addprefix $(PREF_SRC), main.c all_check.c push.c swap.c rotate.c command_2.c func_lib.c support_code.c support_code1.c \
-								support_code2.c)
+								support_code2.c filling_stack.c strong_sort.c)
 OBJ = $(patsubst $(PREF_SRC)%.c, $(PREF_OBJ)%.o, $(SRC))
 
 all : $(NAME)
