@@ -72,3 +72,35 @@ void	recurs_sort_a(t_Stack *a, t_Stack *b) // рекурсивная функц�
 	}
 	recurs_sort(a, b);
 }
+
+void rotate_b_to_insert(t_Stack *b, int number)
+{
+    t_node *tmp;
+    int coinc_num;
+
+    tmp = b->top;
+    if (tmp == NULL)
+        return;
+
+    // Ищем место для вставки элемента
+    while (tmp->next != NULL)
+    {
+        // Если нашли место, где элемент подходит по величине между двумя элементами
+        if (tmp->number > number && tmp->next->number < number)
+        {
+            coinc_num = tmp->next->number;
+            while (b->top->number != coinc_num)
+                rotate_b(b);  // Ротация до нужного элемента
+            return;
+        }
+        tmp = tmp->next;
+    }
+
+    // Если не нашли подходящего места, нужно учесть крайние случаи
+    if (number > b->top->number || number < b->end->number)
+    {
+        // Если число больше максимума или меньше минимума, делаем ротацию к концу
+        while (b->top->number != b->end->number)
+            rotate_b(b);
+    }
+}

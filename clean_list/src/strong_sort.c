@@ -6,43 +6,12 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:38:46 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/09 12:00:58 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/12 16:09:38 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-// void rotate_b_to_insert(t_Stack *b, int number)
-// {
-//     t_node *tmp;
-//     int coinc_num;
-
-//     tmp = b->top;
-//     if (tmp == NULL)
-//         return;
-
-//     // Ищем место для вставки элемента
-//     while (tmp->next != NULL)
-//     {
-//         // Если нашли место, где элемент подходит по величине между двумя элементами
-//         if (tmp->number > number && tmp->next->number < number)
-//         {
-//             coinc_num = tmp->next->number;
-//             while (b->top->number != coinc_num)
-//                 rotate_b(b);  // Ротация до нужного элемента
-//             return;
-//         }
-//         tmp = tmp->next;
-//     }
-
-//     // Если не нашли подходящего места, нужно учесть крайние случаи
-//     if (number > b->top->number || number < b->end->number)
-//     {
-//         // Если число больше максимума или меньше минимума, делаем ротацию к концу
-//         while (b->top->number != b->end->number)
-//             rotate_b(b);
-//     }
-// }
 void	r_or_rr(t_Stack *stack, int index)
 {
 	t_node	*tmp;
@@ -95,22 +64,50 @@ void	find_best_place(t_Stack *a, t_Stack *b, int max_index)
 	push_a (a, b);
 }
 
+int	find_max_or_min_index(t_Stack *stack, int flag)
+{
+	t_node	*tmp;
+	int		index;
+
+	tmp = stack -> top;
+	index = stack -> top -> index;
+	if (flag == 1)
+	{
+		while (tmp != NULL)
+		{
+			if (index < tmp -> index)
+				index = tmp -> index;
+			tmp = tmp -> next;
+		}
+	}
+	else
+	{
+		while (tmp != NULL)
+		{
+			if (index > tmp -> index)
+				index = tmp -> index;
+			tmp = tmp -> next;
+		}
+	}
+	return (index);
+}
+
 void	move_to_a(t_Stack *a, t_Stack *b)
 {
-	int	max_index = a -> end -> index;
-	int	min_index = a -> top -> index;
+	int	max_index = find_max_or_min_index(a, 1);
+	int	min_index = find_max_or_min_index(a, -1);
 
 	while (b -> top != NULL)
 	{
-		// if (a -> top == NULL)
-		// {
-		// 	push_a(a, b);
-		// 	push_a(a, b);
-		// 	if (a -> top -> index < a -> top -> next -> index)
-		// 		swap_a (a);
-		// 	max_index = b -> top -> index;
-		// 	min_index = b -> top -> next -> index;
-		// }
+		if (a -> top == NULL)
+		{
+			push_a(a, b);
+			push_a(a, b);
+			if (a -> top -> index < a -> top -> next -> index)
+				swap_a (a);
+			max_index = b -> top -> index;
+			min_index = b -> top -> next -> index;
+		}
 		if (b -> top -> index > max_index || b -> top -> index < min_index)
 		{
 			if (a -> top -> index != min_index)
@@ -181,9 +178,6 @@ void move_min_to_top(t_Stack *stack)
 void	sort_stack_1(t_Stack *a, t_Stack *b)
 {
 	move_to_a(a, b);
-	print_stack (b, 'b');
-	print_stack (a, 'a');
 	move_min_to_top(a);
-	while (b -> top != NULL)
-		push_a(a, b);
+	print_stack (a, 'a');
 }

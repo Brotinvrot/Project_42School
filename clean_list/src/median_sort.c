@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:31:16 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/12 14:51:31 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/12 16:10:57 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	recurs_sort_a(t_Stack *a, t_Stack *b)
 			rotate_a (a);
 		}
 	}
-	//recurs_sort_a(a, b); начинаю реализацию логики
+	recurs_sort_a(a, b);
 }
 
 void	pre_sort (t_Stack *a, t_Stack *b)
