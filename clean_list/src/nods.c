@@ -1,55 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filling_stack.c                                    :+:      :+:    :+:   */
+/*   nods.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 15:59:02 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/07 19:26:49 by drabadan         ###   ########.fr       */
+/*   Created: 2024/10/11 13:30:48 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/11 13:36:16 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	init_index(t_Stack *stack)
+t_node	*create_node(int value)
 {
-	t_node	*tmp;
+	t_node	*new_node;
 
-	tmp = stack -> top;
-	while (tmp != NULL)
+	new_node = malloc(sizeof(t_node));
+	if (new_node == NULL)
 	{
-		tmp -> index = -1;
-		tmp = tmp -> next;
+		write (2,"Error\n", 1);
+		return (new_node);
 	}
-}
-
-void	fill_stack(t_Stack *a, char **str)
-{
-	int			i;
-	t_node		*tmp;
-
-	i = 0;
-	while (str[i])
-	{
-		tmp = malloc(sizeof(t_node));
-		if (!tmp)
-		{
-			goto_free(str);
-			free_stack(a);
-			exit (1);
-		}
-		tmp -> number = atoi(str[i]);
-		tmp -> next = NULL;
-		tmp -> prev = a -> end;
-		if (a -> end)
-			a -> end -> next = tmp;
-		a -> end = tmp;
-		if (a -> top == NULL)
-			a -> top = tmp;
-		i++;
-	}
-	goto_free(str);
+	new_node -> number = value;
+	new_node -> next = NULL;
+	new_node -> prev = NULL;
+	return (new_node);
 }
 
 void	fill_ind(t_Stack *stack)
@@ -81,22 +57,20 @@ void	fill_ind(t_Stack *stack)
 	}
 }
 
-void	print_index(t_Stack *stack)
+void	init_index(t_Stack *stack)
 {
 	t_node	*tmp;
 
 	tmp = stack -> top;
 	while (tmp != NULL)
 	{
-		printf ("%d ", tmp -> index);
+		tmp -> index = -1;
 		tmp = tmp -> next;
 	}
-	printf ("\n");
 }
 
 void	indexing(t_Stack *stack)
 {
 	init_index(stack);
 	fill_ind(stack);
-	print_index(stack);
 }

@@ -6,23 +6,23 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:33:22 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/06 20:34:56 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:27:21 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	push_b (t_Stack *a, t_Stack *b)
+void	push_b(t_Stack *a, t_Stack *b)
 {
 	t_node	*tmp;
 
 	if (a -> top == NULL)
-        return ;
+		return ;
 	tmp = a -> top;
 	a -> top = a -> top -> next;
 	if (a -> top != NULL)
 		a -> top -> prev = NULL;
-    else
+	else
 		a -> end = NULL;
 	tmp -> next = b -> top;
 	tmp -> prev = NULL;
@@ -31,10 +31,10 @@ void	push_b (t_Stack *a, t_Stack *b)
 	else
 		b -> end = tmp;
 	b -> top = tmp;
-    write(1, "pb\n", 3);
+	write(1, "pb\n", 3);
 }
 
-void	push_a (t_Stack *a, t_Stack *b)
+void	push_a(t_Stack *a, t_Stack *b)
 {
 	t_node	*tmp;
 
