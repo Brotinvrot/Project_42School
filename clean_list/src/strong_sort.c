@@ -6,11 +6,14 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:38:46 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/12 16:09:38 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/13 07:46:04 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+// эта функция принимает указатель на стек и идекс определённой ноды из стека А
+// затем выбирает кратчайший путк к ТОПУ стека, используя реверсивный ротейд или просто ротацию
 
 void	r_or_rr(t_Stack *stack, int index)
 {
@@ -145,7 +148,7 @@ void rotate_to_max(t_Stack *stack, int max, int index_max, int max_index)
     }
 }
 
-void move_min_to_top(t_Stack *stack)
+void move_min_to_top(t_Stack *stack)// начинаю ковырять, меняю максимум на минимум
 {
     t_node *tmp;
     int max;
@@ -175,9 +178,65 @@ void move_min_to_top(t_Stack *stack)
     rotate_to_max(stack, max, index_max, max_index);
 }
 
-void	sort_stack_1(t_Stack *a, t_Stack *b)
+void	r_or_rr_new(t_Stack *stack, int index)
 {
-	move_to_a(a, b);
-	move_min_to_top(a);
-	print_stack (a, 'a');
+	t_node	*tmp;
+	int		from_the_top;
+	int		from_the_end;
+
+	from_the_top = 0;
+	from_the_end = 0;
+	tmp	= stack -> top;
+	if (tmp -> index == index)
+		return ;
+	while (tmp -> index != index && tmp != NULL)
+	{
+		from_the_top++;
+		tmp = tmp -> next;
+	}
+	tmp = stack -> end;
+	if (tmp -> index == index)
+	{
+		rev_rb (stack);
+		return ;
+	}
+	while (tmp -> index != index && tmp != NULL)
+	{
+		from_the_end++;
+		tmp = tmp -> prev;
+	}
+	if (from_the_top < from_the_end)
+		while (stack -> top -> index != index)
+			rotate_b(stack);
+	else
+		while (stack -> top -> index != index)
+			rev_rb(stack);
+}
+
+void	find_best_place_new(t_Stack *a, t_Stack *b, int max_index)
+{
+	int		current_index;
+	t_node	*tmp;
+
+	current_index = best_case(a, b);
+	tmp = a -> top;
+	while (tmp != NULL)
+	{
+		if (tmp -> index > current_index && tmp -> index < max_index)
+			max_index = tmp -> index;
+		tmp = tmp -> next;
+	}
+	r_or_rr_new(b, current_index);
+	r_or_rr(a, max_index);
+	push_a (a, b);
+
+}
+
+void	sort_stack_1(t_Stack *a, t_Stack *b)// кашу тут заварил
+{
+	//move_to_a(a, b);
+	while (b -> top != NULL)
+		find_best_place_new(a, b, find_max_or_min_index(a, 1));
+	r_or_rr(a, find_max_or_min_index(a, -1));
+	//move_min_to_top(a);
 }

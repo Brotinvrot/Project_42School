@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:35:38 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/12 21:33:30 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/12 22:29:31 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ void	move_to_b (t_Stack *a, t_Stack *b);
 void	move_to_a(t_Stack *a, t_Stack *b);
 void	pre_sort (t_Stack *a, t_Stack *b);
 void	recurs_sort_a(t_Stack *a, t_Stack *b);
-int	find_max_or_min_index(t_Stack *stack, int flag);
-int	find_median(t_Stack *stack);
+int		find_max_or_min_index(t_Stack *stack, int flag);
+int		ind_median(t_Stack *stack);
 //void	rotate_b_to_insert(t_Stack *b, int number);
 void	sort_two(t_Stack *a);
 void	sort_three(t_Stack *a);
 void	pre_sort(t_Stack *a, t_Stack *b);
 // CALCULATION
-int	best_case(t_Stack *a, t_Stack *b);
-int	find_place(t_Stack *a, int index_b);
-int	move_to_the_top(t_Stack *stack, int index);
+int		best_case(t_Stack *a, t_Stack *b);
+int		find_place(t_Stack *a, int index_b);
+int		move_to_the_top(t_Stack *stack, int index);
 #endif
