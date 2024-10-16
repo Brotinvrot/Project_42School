@@ -6,11 +6,11 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:29:55 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/14 09:35:02 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:43:34 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "bonus_header.h"
 
 void	second_step(char **str)
 {
@@ -20,12 +20,14 @@ void	second_step(char **str)
 	init_stack(&a);
 	init_stack(&b);
 	fill_stack(&a, str);
-	init_index(&a);
-	fill_ind(&a);
 	if (if_it_sort(&a) == 1)
-		sort_stack(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
+		checking(&a, &b);
+	else
+	{
+		free_stack(&a);
+		free_stack(&b);
+		write (1, "OK\n", 3);
+	}
 }
 
 void	first_step(int argc, char **argv)

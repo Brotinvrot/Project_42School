@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   bonus_header.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 14:44:44 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/15 13:11:07 by drabadan         ###   ########.fr       */
+/*   Created: 2024/10/16 10:39:40 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/16 11:39:29 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef BONUS_HEADER_H
+# define BONUS_HEADER_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -19,7 +19,6 @@
 typedef struct s_node
 {
 	int				number;
-	int				index;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -56,8 +55,10 @@ long	ft_atoi(const char *str);
 
 // support function library 2
 int		ft_strcmp(char *s1, char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strcat(char *dest, const char *src);
+void	*ft_memset(void *dst, int n, size_t len);
 
 // free_memory
 void	goto_free(char **str);
@@ -67,39 +68,10 @@ void	free_stack(t_Stack *stack);
 void	init_stack(t_Stack *stack);
 void	fill_stack(t_Stack *a, char **str);
 
-// nods
-void	init_index(t_Stack *stack);
-void	fill_ind(t_Stack *stack);
-
-// sort
-void	sort_stack(t_Stack *a, t_Stack *b);
-void	greedy_sort(t_Stack *a, t_Stack *b);
-void	find_best_place_new(t_Stack *a, t_Stack *b, int max_index);
-void	r_or_rr_stack_a(t_Stack *stack, int index);
-void	r_or_rr_stack_b(t_Stack *stack, int index);
-
-// calculation
-int		best_case(t_Stack *a, t_Stack *b);
-int		move_to_the_top(t_Stack *stack, int index);
-int		find_place(t_Stack *a, int index_b);
-int		find_max_or_min_index(t_Stack *stack, int flag);
-
-// pre sort and median sort
-void	pre_sort(t_Stack *a, t_Stack *b);
-void	recurs_sort_a(t_Stack *a, t_Stack *b);
-int		find_median(t_Stack *stack);
-int		count_nods(t_Stack *stack);
-
-// support fast sort
-void	find_min_pb(t_Stack *a, t_Stack *b);
-void	rotate_to_min(t_Stack *a, int min, int index_min, int max_index);
-
-// fast sort
-void	speedrun(t_Stack *a, t_Stack *b);
-void	sort_two(t_Stack *stack);
-void	sort_three(t_Stack *a);
-void	sort_four(t_Stack *a, t_Stack *b);
-void	sort_few(t_Stack *a, t_Stack *b);
+// checking
+void	checking(t_Stack *a, t_Stack *b);
+void	exec_instruct(char *line, t_Stack *a, t_Stack *b);
+void	error_func(t_Stack *a, t_Stack *b);
 
 // comands
 void	push_a(t_Stack *a, t_Stack *b);

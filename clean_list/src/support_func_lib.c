@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   support_code.c                                     :+:      :+:    :+:   */
+/*   support_func_lib.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 13:38:30 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/01 13:38:32 by drabadan         ###   ########.fr       */
+/*   Created: 2024/10/13 16:46:48 by drabadan          #+#    #+#             */
+/*   Updated: 2024/10/13 19:46:52 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ char	*str_creat(char *str, int argc, char **argv)
 	int	i;
 
 	i = 2;
-	strcpy(str, argv[1]);
+	ft_strcpy(str, argv[1]);
 	while (i < argc)
 	{
-		strcat(str, " ");
-		strcat(str, argv[i]);
+		ft_strcat(str, " ");
+		ft_strcat(str, argv[i]);
 		i++;
 	}
 	return (str);

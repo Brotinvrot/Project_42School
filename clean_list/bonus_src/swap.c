@@ -6,11 +6,11 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:40:10 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/13 15:00:40 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:24:01 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "bonus_header.h"
 
 void	swap_a(t_Stack *a)
 {
@@ -34,7 +34,6 @@ void	swap_a(t_Stack *a)
 		a -> top = a -> top -> prev;
 		a -> top -> prev = NULL;
 	}
-	write (1, "sa\n", 3);
 }
 
 void	swap_b(t_Stack *b)
@@ -59,7 +58,6 @@ void	swap_b(t_Stack *b)
 		b -> top = b -> top -> prev;
 		b -> top -> prev = NULL;
 	}
-	write (1, "sb\n", 3);
 }
 
 void	swap(t_Stack *stack)
@@ -92,5 +90,4 @@ void	swap_ss(t_Stack *a, t_Stack *b)
 		return ;
 	swap(a);
 	swap(b);
-	write (1, "ss\n", 3);
 }

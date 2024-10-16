@@ -6,11 +6,11 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:34:37 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/15 13:11:34 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:52:51 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "bonus_header.h"
 
 void	check_simbl(char *str)
 {
