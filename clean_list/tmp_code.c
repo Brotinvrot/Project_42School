@@ -1,4 +1,5 @@
 
+
 void	push_b(t_Stack *a, t_Stack *b) // Более подробная функция Пуш Б, но длиная
 {
 	t_node	*tmp;
