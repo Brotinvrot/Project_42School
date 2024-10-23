@@ -9,7 +9,6 @@ SRC = $(addprefix $(PREF_SRC), main.c all_check.c push.c swap.c rotate.c rev_rot
 								support_code2.c strong_sort.c stack.c nods.c free_memory.c median_sort.c fast_sort.c calculation.c file_to_delete.c)
 OBJ = $(patsubst $(PREF_SRC)%.c, $(PREF_OBJ)%.o, $(SRC))
 
-
 all : $(NAME)
 
 $(NAME) : $(OBJ)
