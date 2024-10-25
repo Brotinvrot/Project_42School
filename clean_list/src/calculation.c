@@ -6,12 +6,17 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 16:24:10 by drabadan          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/10/14 08:24:58 by drabadan         ###   ########.fr       */
+=======
+/*   Updated: 2024/10/12 21:58:08 by drabadan         ###   ########.fr       */
+>>>>>>> b49bc84b014baac541d03cc503a533dd9b7852b3
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+<<<<<<< HEAD
 int	find_max_or_min_index(t_Stack *stack, int flag)
 {
 	t_node	*tmp;
@@ -41,6 +46,9 @@ int	find_max_or_min_index(t_Stack *stack, int flag)
 }
 
 int	move_to_the_top(t_Stack *stack, int index)
+=======
+int	move_to_the_top(t_Stack *stack, int index)// высчитываем сколько ходов требуется для перемещения в топ того или иного индекса
+>>>>>>> b49bc84b014baac541d03cc503a533dd9b7852b3
 {
 	t_node	*tmp;
 	int		from_the_top;
@@ -48,7 +56,11 @@ int	move_to_the_top(t_Stack *stack, int index)
 
 	from_the_top = 0;
 	from_the_end = 0;
+<<<<<<< HEAD
 	tmp = stack -> top;
+=======
+	tmp	= stack -> top;
+>>>>>>> b49bc84b014baac541d03cc503a533dd9b7852b3
 	if (tmp -> index == index)
 		return (from_the_top);
 	while (tmp != NULL && tmp -> index != index)
@@ -68,7 +80,11 @@ int	move_to_the_top(t_Stack *stack, int index)
 		return (from_the_top);
 }
 
+<<<<<<< HEAD
 int	find_place(t_Stack *a, int index_b)
+=======
+int	find_place(t_Stack *a, int index_b)// Находим индекс подходящей ноды что бы запушить ему на голову.
+>>>>>>> b49bc84b014baac541d03cc503a533dd9b7852b3
 {
 	t_node	*tmp;
 	int		max_index_a;

@@ -6,7 +6,11 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:28:32 by drabadan          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/10/13 20:19:12 by drabadan         ###   ########.fr       */
+=======
+/*   Updated: 2024/10/11 13:36:27 by drabadan         ###   ########.fr       */
+>>>>>>> b49bc84b014baac541d03cc503a533dd9b7852b3
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +37,11 @@ void	fill_stack(t_Stack *a, char **str)
 			free_stack(a);
 			exit (1);
 		}
+<<<<<<< HEAD
 		tmp -> number = ft_atoi(str[i]);
+=======
+		tmp -> number = atoi(str[i]);
+>>>>>>> b49bc84b014baac541d03cc503a533dd9b7852b3
 		tmp -> next = NULL;
 		tmp -> prev = a -> end;
 		if (a -> end)
