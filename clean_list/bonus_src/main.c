@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:29:55 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/16 11:43:34 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/10/25 11:12:15 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	second_step(char **str)
 		free_stack(&a);
 		free_stack(&b);
 		write (1, "OK\n", 3);
+		exit(0);
 	}
+	free_stack(&a);
+	free_stack(&b);
 }
 
 void	first_step(int argc, char **argv)

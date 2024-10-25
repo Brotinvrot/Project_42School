@@ -28,8 +28,6 @@ fclean : clean
 	rm -f $(NAME_BONUS)
 
 re : fclean all
-	
-.PHONY: all clean fclean re
 
 NAME_BONUS = checker
 CC = cc
@@ -42,7 +40,7 @@ SRC_BONUS = $(addprefix $(PREF_SRC_BONUS), main.c all_check.c push.c swap.c rota
 								support_func_lib2.c stack.c free_memory.c checking.c)
 OBJ_BONUS = $(patsubst $(PREF_SRC_BONUS)%.c, $(PREF_OBJ_BONUS)%.o, $(SRC_BONUS))
 
-bonus : $(NAME_BONUS)
+bonus : $(NAME_BONUS) all
 
 $(NAME_BONUS) : $(OBJ_BONUS)
 	$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME_BONUS)
